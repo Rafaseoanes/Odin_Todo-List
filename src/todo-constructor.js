@@ -9,3 +9,4 @@ class Todo {
   }
   updateTodo() {}
 }
+export default Todo
