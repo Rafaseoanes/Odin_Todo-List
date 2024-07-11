@@ -1,11 +1,7 @@
 import Todo from "./todo-constructor";
+import { manipulateDom } from "./dom-manipulation";
 
-const content = document.getElementById("content");
-// const body = document.querySelector("body")
-
-window.addEventListener("load", () => {
-  content.innerText = "hey dom";
-});
+manipulateDom()
 
 const createTodo = function (
   title,
