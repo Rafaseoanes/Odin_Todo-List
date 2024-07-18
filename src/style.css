@@ -9,6 +9,8 @@ body {
   border-radius: 10px;
   background-color: white;
   padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
 }
 #content {
   /* height: 100%;
@@ -18,6 +20,7 @@ body {
 }
 li {
   list-style: none;
+  margin: 15px 2px;
 }
 #newProjectBtn {
   border: none;
@@ -25,6 +28,8 @@ li {
   background-color: rgb(235, 235, 235);
   padding: 6px 30px;
   border-radius: 5px;
+  margin-top: auto;
+  
 }
 #modal {
   border: none;
@@ -34,6 +39,7 @@ li {
   color: rgb(49, 45, 69);
   line-height: 20px;
   padding: 15px 30px;
+  
 }
 #modal p {
   border: solid rgb(159, 156, 173) 1px;

@@ -1,10 +1,40 @@
 import Todo from "./todo-constructor";
 import "./style.css";
 import { manipulateDom } from "./dom-manipulation";
+import Project from "./project-constructor";
 
-const homeProject = { title: "🏠 Home", description: "Main home project" };
-const homeProject2 = { title: "🏠 Home2", description: "Main home project" };
-const homeProject3 = { title: "🏠 Home3", description: "Main home project" };
+const Home = { title: "🏠 Home", description: "Main home project" };
+const Completed = { title: "✅ Completed", description: "Completed todos" };
+const Personal = { title: "👤 Personal", description: "Personal todos" };
+
+const data = []
+
+const userInputDialog = document.getElementById("modal");
+const newProjectBtn = document.getElementById("newProjectBtn");
+const createBtn = document.getElementById("createBtn");
+
+//form inputs:
+
+const title = document.getElementById("title");
+const description = document.getElementById("description");
+
+
+newProjectBtn.addEventListener("click", () => {
+  userInputDialog.showModal();
+});
+
+createBtn.addEventListener("click", () => {
+  
+
+  // console.log(title.value )
+  // console.log(title.value )
+
+  const project = new Project(title.value, description.value);
+  data.push(project);
+  console.log(project)
+  manipulateDom(data);
+});
+
 const createTodo = function (
   title,
   description = "",
@@ -18,12 +48,12 @@ const createTodo = function (
     const todo = new Todo(title, description, dueDate, priority, project);
     localStorage.setItem(todo.title, JSON.stringify(todo));
     // console.log(localStorage); // get the whole storage
-   //console.dir(JSON.parse(localStorage.getItem(todo.title))); //get one item
+    //console.dir(JSON.parse(localStorage.getItem(todo.title))); //get one item
   }
 };
 
-const data = [homeProject, homeProject2, homeProject3]
-manipulateDom(data);
+const basicData = [Home, Completed, Personal];
+manipulateDom(basicData);
 createTodo("hey", "this is 1");
 // createTodo("hey2", "this is 2");
 // createTodo("hey3", "this is 3");
