@@ -1,11 +1,11 @@
 import Todo from "./todo-constructor";
 import "./style.css";
-import { manipulateDom } from "./dom-manipulation";
+import { manipulateDom, showTodos } from "./dom-manipulation";
 import Project from "./project-constructor";
 
 const Home = { title: "🏠 Home", description: "Main home project" };
-const Completed = { title: "✅ Completed", description: "Completed todos" };
-const Personal = { title: "👤 Personal", description: "Personal todos" };
+const Completed = { title: "✅ Completed", description: "Completed to-dos" };
+const Personal = { title: "👤 Personal", description: "Personal to-dos" };
 
 const data = []
 
@@ -54,6 +54,6 @@ const createTodo = function (
 
 const basicData = [Home, Completed, Personal];
 manipulateDom(basicData);
+showTodos(basicData[0])
 createTodo("hey", "this is 1");
-// createTodo("hey2", "this is 2");
-// createTodo("hey3", "this is 3");
+
