@@ -3,11 +3,19 @@ import "./style.css";
 import { manipulateDom, showTodos } from "./dom-manipulation";
 import Project from "./project-constructor";
 
-const Home = { title: "🏠 Home", description: "Main home project" };
-const Completed = { title: "✅ Completed", description: "Completed to-dos" };
-const Personal = { title: "👤 Personal", description: "Personal to-dos" };
+const Home = { title: "🏠 Home", description: "Main home project", todos: [{todoTitle: "test"}, {todoTitle: "test2"}] };
+const Completed = {
+  title: "✅ Completed",
+  description: "Completed to-dos",
+  todos: [{todoTitle: "test"}],
+};
+const Personal = {
+  title: "👤 Personal",
+  description: "Personal to-dos",
+  todos: [{todoTitle: "test"}, {todoTitle: "test3"}],
+};
 
-const data = []
+const data = [];
 
 const userInputDialog = document.getElementById("modal");
 const newProjectBtn = document.getElementById("newProjectBtn");
@@ -18,20 +26,17 @@ const createBtn = document.getElementById("createBtn");
 const title = document.getElementById("title");
 const description = document.getElementById("description");
 
-
 newProjectBtn.addEventListener("click", () => {
   userInputDialog.showModal();
 });
 
 createBtn.addEventListener("click", () => {
-  
-
   // console.log(title.value )
   // console.log(title.value )
 
   const project = new Project(title.value, description.value);
   data.push(project);
-  console.log(project)
+  console.log(project);
   manipulateDom(data);
 });
 
@@ -54,6 +59,5 @@ const createTodo = function (
 
 const basicData = [Home, Completed, Personal];
 manipulateDom(basicData);
-showTodos(basicData[0])
+showTodos(basicData[0]);
 createTodo("hey", "this is 1");
-

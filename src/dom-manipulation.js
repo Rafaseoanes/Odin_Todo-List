@@ -15,7 +15,7 @@ function manipulateDom(data) {
     projectList.append(project);
     //   }
     // });
-   
+
     project.addEventListener("click", () => {
       showTodos(item);
     });
@@ -28,12 +28,19 @@ function manipulateDom(data) {
 }
 
 function showTodos(item) {
-  const mainContent = document.getElementById("mainContent");
+  const todoList = document.getElementById("todoList");
   const projectTitle = document.getElementById("projectTitle");
   const projectDescription = document.getElementById("projectDescription");
 
-  // function show(data[i]){}
-  
+  // console.log(item)
+  todoList.innerHTML = "";
+  item.todos.forEach((element) => {
+    const todoItem = document.createElement("li");
+    todoItem.classList.add("todoItem");
+    todoItem.innerText = element.todoTitle;
+
+    todoList.append(todoItem);
+  });
   projectTitle.innerText = item.title;
   projectDescription.innerText = item.description;
 }
